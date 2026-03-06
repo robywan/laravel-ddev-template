@@ -12,3 +12,4 @@ init:
 	ddev restart
 	ddev composer run-script post-root-package-install
 	ddev composer run-script post-create-project-cmd
+	cat .vscode/mcp.json | ddev exec -- jq -M '.servers["laravel-boost"].command |= "ddev"' | tee .vscode/mcp.json 
